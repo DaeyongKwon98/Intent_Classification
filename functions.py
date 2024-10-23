@@ -132,3 +132,73 @@ def preprocess_data(data_path):
     }
     
     return data_dict
+
+
+def concat_previous_1_rows(group):
+	if len(group) < 1:
+		return pd.DataFrame()
+	group = group.copy()
+	group['content'] = group['content'].shift(1).fillna('') + '. ' + group['content']
+	group['content'].iloc[0] = group['content'].iloc[0].lstrip('. ')
+	return group
+
+def concat_previous_2_rows(group):
+	if len(group) < 2:
+		return pd.DataFrame()
+	group = group.copy()
+	group['content'] = group['content'].shift(2).fillna('') + '. ' + group['content'].shift(1).fillna('') + '. ' + group['content']
+	group['content'].iloc[0] = group['content'].iloc[0].lstrip('. ')
+	group['content'].iloc[1] = group['content'].iloc[1].lstrip('. ')
+	return group
+
+def concat_previous_4_rows(group):
+	if len(group) < 4:
+		return pd.DataFrame()
+	group = group.copy()
+	group['content'] = group['content'].shift(4).fillna('') + '. ' + group['content'].shift(3).fillna('') + '. ' + group['content'].shift(2).fillna('') + '. ' + group['content'].shift(1).fillna('') + '. ' + group['content']
+	for i in range(4):
+		group['content'].iloc[i] = group['content'].iloc[i].lstrip('. ')
+	return group
+
+def concat_previous_6_rows(group):
+	if len(group) < 6:
+		return pd.DataFrame()
+	group = group.copy()
+	group['content'] = group['content'].shift(6).fillna('') + '. ' + group['content'].shift(5).fillna('') + '. ' + group['content'].shift(4).fillna('') + '. ' + group['content'].shift(3).fillna('') + '. ' + group['content'].shift(2).fillna('') + '. ' + group['content'].shift(1).fillna('') + '. ' + group['content']
+	for i in range(6):
+		group['content'].iloc[i] = group['content'].iloc[i].lstrip('. ')
+	return group
+
+def concat_previous_8_rows(group):
+	if len(group) < 8:
+		return pd.DataFrame()
+	group = group.copy()
+	group['content'] = (
+		group['content'].shift(8).fillna('') + '. ' +
+		group['content'].shift(7).fillna('') + '. ' +
+		group['content'].shift(6).fillna('') + '. ' + 
+		group['content'].shift(5).fillna('') + '. ' + 
+		group['content'].shift(4).fillna('') + '. ' + 
+		group['content'].shift(3).fillna('') + '. ' + 
+		group['content'].shift(2).fillna('') + '. ' + 
+		group['content'].shift(1).fillna('') + '. ' + 
+		group['content']
+	)
+	for i in range(8):
+		group['content'].iloc[i] = group['content'].iloc[i].lstrip('. ')
+	return group
+
+def concat_history(df, length):
+    if length==1:
+        return df.groupby('dialog_id').apply(concat_previous_1_rows).reset_index(drop=True)
+    elif length==2:
+        return df.groupby('dialog_id').apply(concat_previous_2_rows).reset_index(drop=True)
+    elif length==4:
+        return df.groupby('dialog_id').apply(concat_previous_4_rows).reset_index(drop=True)
+    elif length==6:
+        return df.groupby('dialog_id').apply(concat_previous_6_rows).reset_index(drop=True)
+    elif length==8:
+        return df.groupby('dialog_id').apply(concat_previous_8_rows).reset_index(drop=True)
+    else:
+        print("Wrong history length")
+        return
