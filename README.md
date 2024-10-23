@@ -23,4 +23,4 @@ For the concatenated setting, you can use ```concat_history``` function in **fun
 ## Open Source Material
 - [Models](https://huggingface.co/Daeyongkwon98/Music_Conversation_Intent_Classifier/tree/main/models)
 - [Dataset](https://huggingface.co/datasets/seungheondoh/cpcd-intent)
-- Demo
+- [Huggingface Demo](https://huggingface.co/spaces/Daeyongkwon98/User_Intents_and_Musical_Attributes_Classifier)
