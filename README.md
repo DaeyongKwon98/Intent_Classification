@@ -8,7 +8,8 @@ The packages and version information required for the implementation are stored 
 
 ## Implementation
 
-Sparse representation, Word Embedding (Word2Vec), DistilBERT_Probing, DistilBERT_Finetune, and Llama are each implemented in separate .py files. The **functions.py** file should be placed in the same directory to import data preprocessing functions.
+Sparse representation, Word Embedding (Word2Vec), DistilBERT_Probing, DistilBERT_Finetune, and Llama are each implemented in separate .py files. The **functions.py** file should be placed in the same directory to import functions.
 
 Each .py file can be executed by running ```python filename.py```, and the resulting .csv files will be saved in the **"./results"** directory.
 
+For the concatenated setting, you can use ```concat_history``` function in **functions.py**.
