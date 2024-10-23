@@ -19,3 +19,8 @@ Sparse representation, Word Embedding (Word2Vec), DistilBERT_Probing, DistilBERT
 Each .py file can be executed by running ```python filename.py```, and the resulting .csv files will be saved in the **"./results"** directory.
 
 For the concatenated setting, you can use ```concat_history``` function in **functions.py**.
+
+## Open Source Material
+- [Models](https://huggingface.co/Daeyongkwon98/Music_Conversation_Intent_Classifier/tree/main/models)
+- [Dataset](https://huggingface.co/datasets/seungheondoh/cpcd-intent)
+- Demo
