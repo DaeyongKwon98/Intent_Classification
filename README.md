@@ -1,6 +1,6 @@
-# Predicting User Intents and Musical Attributes from Music Discovery Conversations
+# User Intents and Musical Attributes Classification for Conversational Music Recommendation
 
-Here is the implementation code and data for the paper titled **"Predicting User Intents and Musical Attributes from Music Discovery Conversations"** by Daeyong Kwon, SeungHeon Doh, Juhan Nam, 2024
+Here is the implementation code and data for the paper titled **"User Intents and Musical Attributes Classification for Conversational Music Recommendation"** by Daeyong Kwon, SeungHeon Doh, Juhan Nam
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/a8bfb1dc-856b-4f85-82dd-510cddcc2aeb" alt="Image Load Failed" width="500"/>
